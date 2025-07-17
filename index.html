@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EcoMove - Portafolio de Producto</title>
+    <title>ecomove - Portafolio</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -12,237 +12,330 @@
     <!-- Header -->
     <header class="header">
         <nav class="nav">
-            <div class="nav-container">
-                <div class="logo">
-                    <i class="fas fa-leaf"></i>
-                    <span>EcoMove</span>
-                </div>
-                <ul class="nav-menu">
-                    <li><a href="#inicio">Inicio</a></li>
-                    <li><a href="#problema">Problema</a></li>
-                    <li><a href="#funcionalidad">Funcionalidad</a></li>
-                    <li><a href="#herramientas">Herramientas</a></li>
-                    <li><a href="#contacto">Contacto</a></li>
-                </ul>
-                <div class="hamburger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
+            <div class="nav-brand">ecomove</div>
+            <ul class="nav-menu">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#proyecto">Proyecto</a></li>
+                <li><a href="#caracteristicas">Características</a></li>
+                <li><a href="#sobre-mi">Sobre Mí</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
         </nav>
     </header>
 
     <!-- Hero Section -->
     <section id="inicio" class="hero">
-        <div class="hero-container">
-            <div class="hero-content">
-                <h1 class="hero-title">EcoMove</h1>
-                <p class="hero-subtitle">El asistente inteligente de rutas más confiable, sostenible y personalizado</p>
-                <p class="hero-description">
-                    EcoMove nace con un objetivo ambicioso: convertirse en el asistente inteligente de rutas más confiable, 
-                    sostenible y personalizado para personas que usan transporte público en su día a día.
-                </p>
-                <div class="hero-buttons">
-                    <button class="btn btn-primary" onclick="scrollToSection('funcionalidad')">
-                        <i class="fas fa-play"></i>
-                        Ver Demo
-                    </button>
-                    <button class="btn btn-secondary" onclick="scrollToSection('problema')">
-                        <i class="fas fa-info-circle"></i>
-                        Conocer Más
-                    </button>
+        <div class="hero-content">
+            <h1 class="hero-title">
+                <span class="highlight">ecomove</span>
+                <br>Tu agente de movilidad inteligente
+            </h1>
+            <p class="hero-subtitle">
+                Planifica tu viaje de manera proactiva con alertas inteligentes que te conectan con todas las opciones de transporte disponibles.
+            </p>
+            <div class="hero-buttons">
+                <a href="#proyecto" class="btn btn-primary">Conoce más</a>
+                <a href="#demo" class="btn btn-secondary">Ver Demo</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <div class="app-mockup">
+                <div class="mockup-screen">
+                    <div class="mockup-header">
+                        <div class="mockup-status-bar"></div>
+                    </div>
+                    <div class="mockup-content">
+                        <div class="route-card">
+                            <div class="route-icon">
+                                <i class="fas fa-route"></i>
+                            </div>
+                            <div class="route-info">
+                                <h4>Casa → Trabajo</h4>
+                                <p>3 opciones disponibles</p>
+                            </div>
+                        </div>
+                        <div class="transport-options">
+                            <div class="transport-option metro">
+                                <i class="fas fa-subway"></i>
+                                <span>Metro</span>
+                            </div>
+                            <div class="transport-option bus">
+                                <i class="fas fa-bus"></i>
+                                <span>Bus</span>
+                            </div>
+                            <div class="transport-option bike">
+                                <i class="fas fa-bicycle"></i>
+                                <span>Bici</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="hero-visual">
-                <div class="app-mockup">
-                    <div class="phone-frame">
-                        <div class="screen">
+        </div>
+    </section>
+
+    <!-- Proyecto Section -->
+    <section id="proyecto" class="project">
+        <div class="container">
+            <h2 class="section-title">El Proyecto</h2>
+            <div class="project-content">
+                <div class="project-text">
+                    <h3>¿Qué es ecomove?</h3>
+                    <p>
+                        ecomove es un agente inteligente que te ayuda de manera proactiva a planificar tus viajes de rutina, 
+                        ya sea de casa al trabajo o viceversa. La aplicación analiza tu rutina diaria y te ofrece múltiples 
+                        opciones de transporte en tiempo real.
+                    </p>
+                    <div class="project-stats">
+                        <div class="stat">
+                            <span class="stat-number">5+</span>
+                            <span class="stat-label">Tipos de transporte</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">24/7</span>
+                            <span class="stat-label">Monitoreo</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">Real-time</span>
+                            <span class="stat-label">Alertas</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-image">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h4>Inteligencia Proactiva</h4>
+                        <p>Analiza tu rutina y te sugiere las mejores opciones antes de que las necesites.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Características Section -->
+    <section id="caracteristicas" class="features">
+        <div class="container">
+            <h2 class="section-title">Características Principales</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-route"></i>
+                    </div>
+                    <h3>Múltiples Rutas</h3>
+                    <p>Te ofrece diferentes opciones de ruta considerando tiempo, costo y preferencias.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-bell"></i>
+                    </div>
+                    <h3>Alertas Inteligentes</h3>
+                    <p>Recibe notificaciones proactivas sobre el estado del transporte y alternativas.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-plug"></i>
+                    </div>
+                    <h3>Integración Completa</h3>
+                    <p>Se conecta con metro, buses, bicicletas de arriendo, scooters y más.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Tiempo Real</h3>
+                    <p>Información actualizada en tiempo real sobre horarios y disponibilidad.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-user-cog"></i>
+                    </div>
+                    <h3>Personalización</h3>
+                    <p>Adapta las sugerencias a tus preferencias y rutinas específicas.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3>Movilidad Sostenible</h3>
+                    <p>Promueve opciones de transporte más ecológicas y eficientes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Section -->
+    <section id="demo" class="demo">
+        <div class="container">
+            <h2 class="section-title">Demo Interactivo</h2>
+            <div class="demo-content">
+                <div class="demo-mockup">
+                    <div class="phone-mockup">
+                        <div class="phone-screen">
                             <div class="app-header">
-                                <i class="fas fa-leaf"></i>
-                                <span>EcoMove</span>
+                                <h3>ecomove</h3>
+                                <div class="status-indicator active"></div>
                             </div>
-                            <div class="app-content">
-                                <div class="route-card">
-                                    <div class="route-info">
-                                        <h3>Ruta Verde</h3>
-                                        <p>Menor huella de carbono</p>
+                            <div class="route-suggestion">
+                                <div class="suggestion-header">
+                                    <h4>Ruta Sugerida</h4>
+                                    <span class="time">15 min</span>
+                                </div>
+                                <div class="route-steps">
+                                    <div class="step">
+                                        <i class="fas fa-walking"></i>
+                                        <span>Caminar 5 min</span>
                                     </div>
-                                    <div class="route-time">15 min</div>
+                                    <div class="step">
+                                        <i class="fas fa-subway"></i>
+                                        <span>Metro Línea 1</span>
+                                    </div>
+                                    <div class="step">
+                                        <i class="fas fa-walking"></i>
+                                        <span>Caminar 3 min</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="alternative-routes">
+                                <h5>Alternativas</h5>
+                                <div class="alt-route">
+                                    <i class="fas fa-bicycle"></i>
+                                    <span>Bicicleta (20 min)</span>
+                                </div>
+                                <div class="alt-route">
+                                    <i class="fas fa-bus"></i>
+                                    <span>Bus 401 (25 min)</span>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <div class="demo-info">
+                    <h3>¿Cómo funciona?</h3>
+                    <div class="demo-steps">
+                        <div class="step-item">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h4>Configura tu rutina</h4>
+                                <p>Define tus destinos frecuentes y horarios.</p>
+                            </div>
+                        </div>
+                        <div class="step-item">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h4>Recibe alertas inteligentes</h4>
+                                <p>El sistema te notifica sobre las mejores opciones disponibles.</p>
+                            </div>
+                        </div>
+                        <div class="step-item">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h4>Elige tu ruta</h4>
+                                <p>Selecciona la opción que mejor se adapte a tus necesidades.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Problem Section -->
-    <section id="problema" class="problem">
+    <!-- Sobre Mí Section -->
+    <section id="sobre-mi" class="about">
         <div class="container">
-            <div class="section-header">
-                <h2>La Problemática y Solución</h2>
-                <p>Abordamos los desafíos de la movilidad urbana con una solución inteligente</p>
-            </div>
-            <div class="problem-content">
-                <div class="problem-card">
-                    <div class="card-icon">
-                        <i class="fas fa-exclamation-triangle"></i>
-                    </div>
-                    <h3>El Problema</h3>
-                    <p>La ineficiencia y fragmentación en la planificación de trayectos urbanos. Las apps existentes no consideran el contexto local ni ofrecen una experiencia coherente y sostenible.</p>
-                </div>
-                <div class="problem-card">
-                    <div class="card-icon">
-                        <i class="fas fa-lightbulb"></i>
-                    </div>
-                    <h3>Nuestra Solución</h3>
-                    <p>EcoMove combina IA, fuentes de datos oficiales y personalización, priorizando rutas con menor huella de carbono.</p>
-                </div>
-                <div class="problem-card">
-                    <div class="card-icon">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <h3>Enfoque Ágil</h3>
-                    <p>Gracias al enfoque ágil y el trabajo en equipo, definimos un MVP sólido y funcional, con entregas claras y una validación iterativa.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Functionality Section -->
-    <section id="funcionalidad" class="functionality">
-        <div class="container">
-            <div class="section-header">
-                <h2>Cómo Funciona EcoMove</h2>
-                <p>Un asistente inteligente de movilidad urbana que optimiza tu día</p>
-            </div>
-            <div class="functionality-content">
-                <div class="functionality-steps">
-                    <div class="step">
-                        <div class="step-number">1</div>
-                        <div class="step-content">
-                            <h3>Ingresa tu Rutina</h3>
-                            <p>Describe tu día mediante texto o voz</p>
-                        </div>
-                    </div>
-                    <div class="step">
-                        <div class="step-number">2</div>
-                        <div class="step-content">
-                            <h3>IA Interpreta</h3>
-                            <p>La IA analiza tus necesidades y cruza datos en tiempo real</p>
-                        </div>
-                    </div>
-                    <div class="step">
-                        <div class="step-number">3</div>
-                        <div class="step-content">
-                            <h3>Recibe tu Itinerario</h3>
-                            <p>Obtén un itinerario optimizado, sostenible y personalizado</p>
+            <h2 class="section-title">Sobre Mí</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Product Owner</h3>
+                    <p>
+                        Como Product Owner de ecomove, he liderado el desarrollo de esta innovadora solución de movilidad urbana. 
+                        Mi rol incluye la definición de la visión del producto, la gestión del backlog, y la colaboración estrecha 
+                        con el equipo de desarrollo para asegurar que entregamos valor al usuario final.
+                    </p>
+                    <div class="skills">
+                        <h4>Habilidades aplicadas:</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Product Management</span>
+                            <span class="skill-tag">User Research</span>
+                            <span class="skill-tag">Agile/Scrum</span>
+                            <span class="skill-tag">Stakeholder Management</span>
+                            <span class="skill-tag">Data Analysis</span>
+                            <span class="skill-tag">UX/UI Design</span>
                         </div>
                     </div>
                 </div>
-                <div class="features-grid">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-microphone"></i>
+                <div class="about-image">
+                    <div class="profile-card">
+                        <div class="profile-avatar">
+                            <i class="fas fa-user"></i>
                         </div>
-                        <h4>Ingreso por Voz</h4>
-                        <p>Describe tu rutina de forma natural</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-seedling"></i>
+                        <h4>Product Owner</h4>
+                        <p>Liderando la transformación de la movilidad urbana</p>
+                        <div class="achievements">
+                            <div class="achievement">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Producto desde cero</span>
+                            </div>
+                            <div class="achievement">
+                                <i class="fas fa-users"></i>
+                                <span>Equipo multidisciplinario</span>
+                            </div>
+                            <div class="achievement">
+                                <i class="fas fa-chart-line"></i>
+                                <span>Métricas de éxito</span>
+                            </div>
                         </div>
-                        <h4>Modo Verde</h4>
-                        <p>Prioriza opciones de menor huella ambiental</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-bell"></i>
-                        </div>
-                        <h4>Notificaciones Proactivas</h4>
-                        <p>Resumen editable con alertas inteligentes</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Tools Section -->
-    <section id="herramientas" class="tools">
-        <div class="container">
-            <div class="section-header">
-                <h2>Herramientas y Metodologías</h2>
-                <p>Proceso de desarrollo basado en metodologías ágiles</p>
-            </div>
-            <div class="tools-grid">
-                <div class="tool-card">
-                    <div class="tool-icon">
-                        <i class="fas fa-rocket"></i>
-                    </div>
-                    <h3>Agile Inception Deck</h3>
-                    <p>Alineación de todos los actores en torno a una visión compartida. Evitamos errores del pasado alineando expectativas y prioridades desde el inicio.</p>
-                </div>
-                <div class="tool-card">
-                    <div class="tool-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <h3>Lean Canvas</h3>
-                    <p>Identificamos el segmento de usuarios clave, su problema central y cómo EcoMove aporta valor real y medible.</p>
-                </div>
-                <div class="tool-card">
-                    <div class="tool-icon">
-                        <i class="fas fa-heart"></i>
-                    </div>
-                    <h3>Mapa de Empatía</h3>
-                    <p>Profundizamos en los pensamientos, emociones y barreras del usuario objetivo.</p>
-                </div>
-                <div class="tool-card">
-                    <div class="tool-icon">
-                        <i class="fas fa-tasks"></i>
-                    </div>
-                    <h3>User Story Mapping</h3>
-                    <p>Priorizamos historias del backlog según valor al negocio y esfuerzo, identificando las más estratégicas para el MVP.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
+    <!-- Contacto Section -->
     <section id="contacto" class="contact">
         <div class="container">
-            <div class="section-header">
-                <h2>Reflexión Final</h2>
-                <p>Un proyecto que evolucionó hacia una mentalidad más ágil y enfocada en el usuario</p>
-            </div>
+            <h2 class="section-title">Contacto</h2>
             <div class="contact-content">
-                <div class="reflection-text">
-                    <p>
-                        Este proyecto no solo significó un rediseño de producto, sino una evolución del equipo hacia una mentalidad más ágil, 
-                        enfocada en el usuario y basada en decisiones informadas.
-                    </p>
-                    <p>
-                        Como Product Owner, lideré procesos de alineación, priorización y validación continua, aprendiendo a equilibrar 
-                        necesidades técnicas, del negocio y del usuario.
-                    </p>
-                    <p>
-                        EcoMove está listo para ofrecer una mejor experiencia urbana, y este portafolio refleja ese camino desde la visión hasta la acción.
-                    </p>
-                </div>
                 <div class="contact-info">
-                    <h3>¿Interesado en el proyecto?</h3>
-                    <p>EcoMove está preparado para su fase de validación cerrada y distribución controlada.</p>
-                    <div class="contact-buttons">
-                        <button class="btn btn-primary">
-                            <i class="fas fa-download"></i>
-                            Descargar MVP
-                        </button>
-                        <button class="btn btn-secondary">
+                    <h3>¿Te interesa el proyecto?</h3>
+                    <p>
+                        Si quieres saber más sobre ecomove o tienes alguna pregunta sobre mi trabajo como Product Owner, 
+                        no dudes en contactarme.
+                    </p>
+                    <div class="contact-methods">
+                        <div class="contact-method">
                             <i class="fas fa-envelope"></i>
-                            Contactar
-                        </button>
+                            <span>tu.email@ejemplo.com</span>
+                        </div>
+                        <div class="contact-method">
+                            <i class="fab fa-linkedin"></i>
+                            <span>linkedin.com/in/tu-perfil</span>
+                        </div>
+                        <div class="contact-method">
+                            <i class="fab fa-github"></i>
+                            <span>github.com/tu-usuario</span>
+                        </div>
                     </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" placeholder="Tu nombre" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" placeholder="Tu email" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" placeholder="Tu mensaje" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Enviar Mensaje</button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -252,11 +345,19 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-logo">
-                    <i class="fas fa-leaf"></i>
-                    <span>EcoMove</span>
+                <div class="footer-brand">
+                    <h3>ecomove</h3>
+                    <p>Transformando la movilidad urbana</p>
                 </div>
-                <p>&copy; 2024 EcoMove. Todos los derechos reservados.</p>
+                <div class="footer-links">
+                    <a href="#inicio">Inicio</a>
+                    <a href="#proyecto">Proyecto</a>
+                    <a href="#caracteristicas">Características</a>
+                    <a href="#sobre-mi">Sobre Mí</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 ecomove. Todos los derechos reservados.</p>
             </div>
         </div>
     </footer>

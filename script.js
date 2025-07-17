@@ -1,22 +1,12 @@
-// Funcionalidades principales del portafolio
-
+// Navegación suave
 document.addEventListener('DOMContentLoaded', function() {
-    // Navegación móvil
-    const hamburger = document.querySelector('.hamburger');
-    const navMenu = document.querySelector('.nav-menu');
+    // Navegación suave para enlaces internos
+    const navLinks = document.querySelectorAll('a[href^="#"]');
     
-    if (hamburger && navMenu) {
-        hamburger.addEventListener('click', function() {
-            hamburger.classList.toggle('active');
-            navMenu.classList.toggle('active');
-        });
-    }
-
-    // Scroll suave para enlaces de navegación
-    const navLinks = document.querySelectorAll('.nav-menu a[href^="#"]');
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
             e.preventDefault();
+            
             const targetId = this.getAttribute('href');
             const targetSection = document.querySelector(targetId);
             
@@ -32,19 +22,46 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Función para scroll a sección específica
-    window.scrollToSection = function(sectionId) {
-        const section = document.querySelector(`#${sectionId}`);
-        if (section) {
-            const headerHeight = document.querySelector('.header').offsetHeight;
-            const targetPosition = section.offsetTop - headerHeight;
+    // Menú móvil
+    const navToggle = document.querySelector('.nav-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+    
+    if (navToggle && navMenu) {
+        navToggle.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+            navToggle.classList.toggle('active');
+        });
+    }
+
+    // Formulario de contacto
+    const contactForm = document.getElementById('contactForm');
+    
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
             
-            window.scrollTo({
-                top: targetPosition,
-                behavior: 'smooth'
-            });
-        }
-    };
+            // Obtener datos del formulario
+            const formData = new FormData(this);
+            const name = formData.get('name');
+            const email = formData.get('email');
+            const message = formData.get('message');
+            
+            // Validación básica
+            if (!name || !email || !message) {
+                showNotification('Por favor completa todos los campos', 'error');
+                return;
+            }
+            
+            if (!isValidEmail(email)) {
+                showNotification('Por favor ingresa un email válido', 'error');
+                return;
+            }
+            
+            // Simular envío (aquí puedes integrar con tu backend)
+            showNotification('Mensaje enviado correctamente', 'success');
+            this.reset();
+        });
+    }
 
     // Animaciones al hacer scroll
     const observerOptions = {
@@ -55,54 +72,166 @@ document.addEventListener('DOMContentLoaded', function() {
     const observer = new IntersectionObserver(function(entries) {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('fade-in-up');
+                entry.target.classList.add('animate-in');
             }
         });
     }, observerOptions);
 
-    // Observar elementos para animaciones
-    const animatedElements = document.querySelectorAll('.problem-card, .step, .feature-card, .tool-card');
-    animatedElements.forEach(el => {
+    // Observar elementos para animación
+    const animateElements = document.querySelectorAll('.feature-item, .project-stats, .demo-steps .step-item, .skill-tags');
+    animateElements.forEach(el => {
         observer.observe(el);
     });
 
-    // Header con efecto de transparencia al hacer scroll
-    const header = document.querySelector('.header');
-    let lastScrollTop = 0;
+    // Contador animado para estadísticas
+    const stats = document.querySelectorAll('.stat-number');
+    
+    const animateCounter = (element, target) => {
+        let current = 0;
+        const increment = target / 50;
+        const timer = setInterval(() => {
+            current += increment;
+            if (current >= target) {
+                current = target;
+                clearInterval(timer);
+            }
+            element.textContent = Math.floor(current);
+        }, 30);
+    };
 
-    window.addEventListener('scroll', function() {
-        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        
-        if (scrollTop > 100) {
-            header.style.background = 'rgba(255, 255, 255, 0.98)';
-            header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
-        } else {
-            header.style.background = 'rgba(255, 255, 255, 0.95)';
-            header.style.boxShadow = 'none';
-        }
-        
-        lastScrollTop = scrollTop;
+    // Observar estadísticas para animación
+    const statsObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const statElement = entry.target;
+                const targetValue = parseInt(statElement.textContent);
+                animateCounter(statElement, targetValue);
+                statsObserver.unobserve(statElement);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    stats.forEach(stat => {
+        statsObserver.observe(stat);
     });
 
-    // Contador animado para estadísticas (opcional)
-    function animateCounter(element, target, duration = 2000) {
-        let start = 0;
-        const increment = target / (duration / 16);
-        
-        function updateCounter() {
-            start += increment;
-            if (start < target) {
-                element.textContent = Math.floor(start);
-                requestAnimationFrame(updateCounter);
-            } else {
-                element.textContent = target;
-            }
-        }
-        
-        updateCounter();
+    // Parallax effect para el hero
+    const hero = document.querySelector('.hero');
+    if (hero) {
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const rate = scrolled * -0.5;
+            hero.style.transform = `translateY(${rate}px)`;
+        });
     }
 
-    // Efectos hover para botones
+    // Efecto de escritura para el título
+    const heroTitle = document.querySelector('.hero-title');
+    if (heroTitle) {
+        const text = heroTitle.textContent;
+        heroTitle.textContent = '';
+        
+        let i = 0;
+        const typeWriter = () => {
+            if (i < text.length) {
+                heroTitle.textContent += text.charAt(i);
+                i++;
+                setTimeout(typeWriter, 100);
+            }
+        };
+        
+        // Iniciar efecto después de un pequeño delay
+        setTimeout(typeWriter, 500);
+    }
+
+    // Demo interactivo
+    const demoSteps = document.querySelectorAll('.route-steps .step');
+    let currentStep = 0;
+
+    const animateDemoSteps = () => {
+        demoSteps.forEach((step, index) => {
+            if (index <= currentStep) {
+                step.style.opacity = '1';
+                step.style.transform = 'translateX(0)';
+            } else {
+                step.style.opacity = '0.5';
+                step.style.transform = 'translateX(-10px)';
+            }
+        });
+    };
+
+    // Inicializar animación de pasos
+    demoSteps.forEach(step => {
+        step.style.transition = 'all 0.3s ease';
+        step.style.opacity = '0.5';
+        step.style.transform = 'translateX(-10px)';
+    });
+
+    // Simular progreso en el demo
+    setInterval(() => {
+        currentStep = (currentStep + 1) % demoSteps.length;
+        animateDemoSteps();
+    }, 2000);
+
+    // Inicializar animación
+    animateDemoSteps();
+});
+
+// Funciones auxiliares
+function isValidEmail(email) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+}
+
+function showNotification(message, type = 'info') {
+    // Crear elemento de notificación
+    const notification = document.createElement('div');
+    notification.className = `notification notification-${type}`;
+    notification.textContent = message;
+    
+    // Estilos de la notificación
+    notification.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        padding: 12px 20px;
+        border-radius: 8px;
+        color: white;
+        font-weight: 500;
+        z-index: 10000;
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+    `;
+    
+    // Colores según tipo
+    if (type === 'success') {
+        notification.style.background = '#10b981';
+    } else if (type === 'error') {
+        notification.style.background = '#ef4444';
+    } else {
+        notification.style.background = '#3b82f6';
+    }
+    
+    // Agregar al DOM
+    document.body.appendChild(notification);
+    
+    // Animar entrada
+    setTimeout(() => {
+        notification.style.transform = 'translateX(0)';
+    }, 100);
+    
+    // Remover después de 3 segundos
+    setTimeout(() => {
+        notification.style.transform = 'translateX(100%)';
+        setTimeout(() => {
+            document.body.removeChild(notification);
+        }, 300);
+    }, 3000);
+}
+
+// Efectos de hover para elementos interactivos
+document.addEventListener('DOMContentLoaded', function() {
+    // Efecto hover para botones
     const buttons = document.querySelectorAll('.btn');
     buttons.forEach(button => {
         button.addEventListener('mouseenter', function() {
@@ -114,220 +243,117 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Efecto parallax suave para el hero
-    window.addEventListener('scroll', function() {
-        const scrolled = window.pageYOffset;
-        const hero = document.querySelector('.hero');
-        if (hero) {
-            const rate = scrolled * -0.5;
-            hero.style.transform = `translateY(${rate}px)`;
-        }
+    // Efecto hover para cards
+    const cards = document.querySelectorAll('.feature-item, .project-stats .stat');
+    cards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-5px)';
+            this.style.boxShadow = '0 20px 25px -5px rgb(0 0 0 / 0.1)';
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0)';
+            this.style.boxShadow = '';
+        });
     });
 
-    // Modal para demo (opcional)
-    function createModal() {
-        const modal = document.createElement('div');
-        modal.className = 'modal';
-        modal.innerHTML = `
-            <div class="modal-content">
-                <span class="close">&times;</span>
-                <h2>Demo de EcoMove</h2>
-                <div class="demo-video">
-                    <div class="video-placeholder">
-                        <i class="fas fa-play-circle"></i>
-                        <p>Video demo de EcoMove</p>
-                    </div>
-                </div>
-                <p>Aquí se mostraría un video demo de la aplicación EcoMove en funcionamiento.</p>
-            </div>
+    // Efecto de partículas en el hero (opcional)
+    createParticles();
+});
+
+function createParticles() {
+    const hero = document.querySelector('.hero');
+    if (!hero) return;
+
+    const particleCount = 50;
+    
+    for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        particle.style.cssText = `
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: float 6s ease-in-out infinite;
+            animation-delay: ${Math.random() * 6}s;
         `;
         
-        document.body.appendChild(modal);
+        particle.style.left = Math.random() * 100 + '%';
+        particle.style.top = Math.random() * 100 + '%';
         
-        // Eventos del modal
-        const closeBtn = modal.querySelector('.close');
-        const demoBtn = document.querySelector('.btn-primary');
-        
-        if (demoBtn) {
-            demoBtn.addEventListener('click', function(e) {
-                e.preventDefault();
-                modal.style.display = 'block';
-            });
+        hero.appendChild(particle);
+    }
+}
+
+// Agregar estilos CSS para animaciones
+const style = document.createElement('style');
+style.textContent = `
+    @keyframes float {
+        0%, 100% {
+            transform: translateY(0px) rotate(0deg);
+            opacity: 0.5;
+        }
+        50% {
+            transform: translateY(-20px) rotate(180deg);
+            opacity: 1;
+        }
+    }
+    
+    .animate-in {
+        animation: fadeInUp 0.6s ease-out forwards;
+    }
+    
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    .feature-item,
+    .project-stats .stat,
+    .demo-steps .step-item,
+    .skill-tags {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    
+    .feature-item.animate-in,
+    .project-stats .stat.animate-in,
+    .demo-steps .step-item.animate-in,
+    .skill-tags.animate-in {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    .nav-menu.active {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: white;
+        padding: 1rem;
+        box-shadow: var(--shadow-md);
+    }
+    
+    @media (max-width: 768px) {
+        .nav-menu {
+            display: none;
         }
         
-        closeBtn.addEventListener('click', function() {
-            modal.style.display = 'none';
-        });
-        
-        window.addEventListener('click', function(e) {
-            if (e.target === modal) {
-                modal.style.display = 'none';
-            }
-        });
-    }
-
-    // Inicializar modal
-    createModal();
-
-    // Estilos para el modal
-    const modalStyles = `
-        <style>
-            .modal {
-                display: none;
-                position: fixed;
-                z-index: 2000;
-                left: 0;
-                top: 0;
-                width: 100%;
-                height: 100%;
-                background-color: rgba(0, 0, 0, 0.5);
-                backdrop-filter: blur(5px);
-            }
-            
-            .modal-content {
-                background-color: white;
-                margin: 5% auto;
-                padding: 40px;
-                border-radius: 20px;
-                width: 90%;
-                max-width: 600px;
-                position: relative;
-                animation: modalSlideIn 0.3s ease-out;
-            }
-            
-            @keyframes modalSlideIn {
-                from {
-                    opacity: 0;
-                    transform: translateY(-50px);
-                }
-                to {
-                    opacity: 1;
-                    transform: translateY(0);
-                }
-            }
-            
-            .close {
-                position: absolute;
-                right: 20px;
-                top: 20px;
-                font-size: 28px;
-                font-weight: bold;
-                cursor: pointer;
-                color: #666;
-            }
-            
-            .close:hover {
-                color: #333;
-            }
-            
-            .demo-video {
-                margin: 20px 0;
-                background: #f8f9fa;
-                border-radius: 15px;
-                padding: 40px;
-                text-align: center;
-            }
-            
-            .video-placeholder {
-                color: #666;
-            }
-            
-            .video-placeholder i {
-                font-size: 4rem;
-                color: #2ecc71;
-                margin-bottom: 15px;
-            }
-        </style>
-    `;
-    
-    document.head.insertAdjacentHTML('beforeend', modalStyles);
-
-    // Efecto de escritura para el título principal
-    function typeWriter(element, text, speed = 100) {
-        let i = 0;
-        element.innerHTML = '';
-        
-        function type() {
-            if (i < text.length) {
-                element.innerHTML += text.charAt(i);
-                i++;
-                setTimeout(type, speed);
-            }
+        .nav-menu.active {
+            display: flex;
         }
-        
-        type();
     }
+`;
 
-    // Aplicar efecto de escritura al título si está en viewport
-    const heroTitle = document.querySelector('.hero-title');
-    if (heroTitle) {
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    typeWriter(heroTitle, 'EcoMove');
-                    observer.unobserve(entry.target);
-                }
-            });
-        });
-        
-        observer.observe(heroTitle);
-    }
-
-    // Tooltip para elementos interactivos
-    function addTooltips() {
-        const tooltipElements = document.querySelectorAll('[data-tooltip]');
-        
-        tooltipElements.forEach(element => {
-            element.addEventListener('mouseenter', function() {
-                const tooltip = document.createElement('div');
-                tooltip.className = 'tooltip';
-                tooltip.textContent = this.getAttribute('data-tooltip');
-                document.body.appendChild(tooltip);
-                
-                const rect = this.getBoundingClientRect();
-                tooltip.style.left = rect.left + (rect.width / 2) - (tooltip.offsetWidth / 2) + 'px';
-                tooltip.style.top = rect.top - tooltip.offsetHeight - 10 + 'px';
-            });
-            
-            element.addEventListener('mouseleave', function() {
-                const tooltip = document.querySelector('.tooltip');
-                if (tooltip) {
-                    tooltip.remove();
-                }
-            });
-        });
-    }
-
-    // Estilos para tooltips
-    const tooltipStyles = `
-        <style>
-            .tooltip {
-                position: absolute;
-                background: #333;
-                color: white;
-                padding: 8px 12px;
-                border-radius: 6px;
-                font-size: 0.9rem;
-                z-index: 1000;
-                pointer-events: none;
-                animation: tooltipFadeIn 0.2s ease-out;
-            }
-            
-            @keyframes tooltipFadeIn {
-                from {
-                    opacity: 0;
-                    transform: translateY(5px);
-                }
-                to {
-                    opacity: 1;
-                    transform: translateY(0);
-                }
-            }
-        </style>
-    `;
-    
-    document.head.insertAdjacentHTML('beforeend', tooltipStyles);
-    addTooltips();
-
-    console.log('Portafolio EcoMove cargado exitosamente');
-}); 
+document.head.appendChild(style); 

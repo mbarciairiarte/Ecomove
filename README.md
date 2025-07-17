@@ -1,123 +1,107 @@
-# EcoMove - Portafolio de Producto
+# ecomove - Portafolio
 
-Un sitio web portafolio profesional para presentar el proyecto EcoMove, el asistente inteligente de rutas más confiable, sostenible y personalizado.
+## 📱 Sobre el Proyecto
 
-## 🚀 Características
+**ecomove** es un agente inteligente de movilidad urbana que ayuda de manera proactiva a planificar viajes de rutina, como desplazamientos de casa al trabajo o viceversa. La aplicación se conecta con múltiples sistemas de transporte para ofrecer rutas optimizadas en tiempo real.
 
-- **Diseño Moderno**: Interfaz limpia y profesional con gradientes y efectos visuales
-- **Responsive**: Optimizado para dispositivos móviles y desktop
-- **Animaciones**: Efectos suaves y transiciones elegantes
-- **Navegación Intuitiva**: Menú fijo con scroll suave
-- **Mockup Interactivo**: Visualización de la aplicación en un teléfono
-- **Secciones Organizadas**: Presentación clara del problema, solución y funcionalidades
+### 🎯 Funcionalidades Principales
 
-## 📁 Estructura del Proyecto
+- **Alertas Proactivas**: Notificaciones inteligentes sobre el estado del transporte
+- **Múltiples Opciones**: Integración con metro, buses, bicicletas de arriendo, scooters
+- **Rutas Optimizadas**: Sugerencias basadas en tiempo, costo y preferencias
+- **Tiempo Real**: Información actualizada sobre horarios y disponibilidad
+- **Personalización**: Adaptación a rutinas y preferencias específicas
+- **Movilidad Sostenible**: Promoción de opciones de transporte ecológicas
+
+### 🚀 Mi Rol: Product Owner
+
+Como Product Owner de ecomove, he liderado:
+- Definición de la visión del producto
+- Gestión del backlog de desarrollo
+- Colaboración con equipos multidisciplinarios
+- Análisis de métricas de éxito
+- Investigación de usuarios
+
+## 🌐 Sitio Web del Portafolio
+
+Este repositorio contiene un sitio web profesional para mostrar el proyecto ecomove, construido con tecnologías web modernas.
+
+### 🛠️ Tecnologías Utilizadas
+
+- **HTML5**: Estructura semántica y accesible
+- **CSS3**: Diseño moderno con Flexbox y Grid
+- **JavaScript**: Interactividad y animaciones
+- **Font Awesome**: Iconografía profesional
+- **Google Fonts**: Tipografía Inter para mejor legibilidad
+
+### 📁 Estructura del Sitio
 
 ```
-Ecomove/
+Portafolio/
 ├── index.html          # Página principal
 ├── styles.css          # Estilos CSS
-├── script.js           # Funcionalidades JavaScript
-└── README.md           # Este archivo
+├── script.js           # Funcionalidad JavaScript
+└── README.md           # Documentación
 ```
 
-## 🎨 Secciones del Portafolio
+### 🎨 Características del Diseño
 
-### 1. Hero Section
-- Presentación del proyecto EcoMove
-- Descripción del objetivo principal
-- Botones de acción (Demo y Conocer Más)
-- Mockup de la aplicación
+- **Responsive**: Optimizado para móviles, tablets y desktop
+- **Moderno**: Diseño limpio con gradientes y sombras
+- **Interactivo**: Animaciones suaves y efectos hover
+- **Profesional**: Paleta de colores coherente y tipografía clara
+- **Accesible**: Navegación por teclado y estructura semántica
 
-### 2. Problemática y Solución
-- Explicación del problema abordado
-- Solución implementada
-- Enfoque ágil del equipo
+### 🚀 Cómo Usar
 
-### 3. Funcionalidad
-- Proceso paso a paso de cómo funciona
-- Características principales del MVP:
-  - Ingreso por voz
-  - Modo verde
-  - Notificaciones proactivas
+1. **Clona o descarga** los archivos del proyecto
+2. **Abre** `index.html` en tu navegador web
+3. **Navega** por las diferentes secciones del portafolio
 
-### 4. Herramientas y Metodologías
-- Agile Inception Deck
-- Lean Canvas
-- Mapa de Empatía
-- User Story Mapping
+### 📱 Secciones del Sitio
 
-### 5. Reflexión Final
-- Cierre del proyecto
-- Aprendizajes como Product Owner
-- Información de contacto
+1. **Hero Section**: Presentación impactante del proyecto
+2. **Proyecto**: Descripción detallada de ecomove
+3. **Características**: Funcionalidades principales
+4. **Demo**: Simulación interactiva de la aplicación
+5. **Sobre Mí**: Información sobre mi rol como Product Owner
+6. **Contacto**: Formulario para comunicación
 
-## 🛠️ Tecnologías Utilizadas
+### 🎯 Funcionalidades Interactivas
 
-- **HTML5**: Estructura semántica
-- **CSS3**: Estilos modernos con Flexbox y Grid
-- **JavaScript**: Interactividad y animaciones
-- **Font Awesome**: Iconografía
-- **Google Fonts**: Tipografía Inter
+- **Navegación Suave**: Scroll automático entre secciones
+- **Animaciones**: Efectos de entrada al hacer scroll
+- **Contadores Animados**: Estadísticas con animación
+- **Demo Interactivo**: Simulación de la interfaz de la app
+- **Formulario de Contacto**: Validación y notificaciones
+- **Menú Móvil**: Navegación responsive
 
-## 🚀 Cómo Usar
+### 🎨 Personalización
 
-1. **Abrir el proyecto**: Simplemente abre `index.html` en tu navegador
-2. **Navegación**: Usa el menú superior para navegar entre secciones
-3. **Interactividad**: 
-   - Botones con efectos hover
-   - Scroll suave entre secciones
-   - Modal para demo (opcional)
-   - Animaciones al hacer scroll
+Para personalizar el sitio:
 
-## 📱 Responsive Design
+1. **Colores**: Modifica las variables CSS en `:root`
+2. **Contenido**: Edita el texto en `index.html`
+3. **Imágenes**: Reemplaza los mockups con imágenes reales
+4. **Información de Contacto**: Actualiza los enlaces en la sección de contacto
 
-El sitio está optimizado para:
-- **Desktop**: 1200px y superior
-- **Tablet**: 768px - 1199px
-- **Mobile**: Menos de 768px
+### 📊 Métricas del Proyecto
 
-## 🎯 Personalización
+- **5+ tipos de transporte** integrados
+- **Monitoreo 24/7** del estado del transporte
+- **Alertas en tiempo real** para cambios de ruta
+- **Personalización completa** de preferencias
 
-### Cambiar Colores
-Los colores principales están definidos en `styles.css`:
-- Verde principal: `#2ecc71`
-- Verde oscuro: `#27ae60`
-- Gradiente hero: `#667eea` a `#764ba2`
+### 🔗 Enlaces Importantes
 
-### Modificar Contenido
-Edita el contenido en `index.html` según tus necesidades:
-- Cambia el nombre del proyecto
-- Actualiza las descripciones
-- Modifica las funcionalidades
-- Ajusta las herramientas utilizadas
+- **Email**: [marcos.barcia@ejemplo.com](mailto:tu.email@ejemplo.com)
+- **LinkedIn**: [linkedin.com/in/tu-perfil](https://linkedin.com/in/tu-perfil)
+- **GitHub**: [github.com/tu-usuario](https://github.com/tu-usuario)
 
-### Agregar Funcionalidades
-En `script.js` puedes agregar:
-- Nuevas animaciones
-- Efectos interactivos
-- Validaciones de formularios
-- Integración con APIs
+### 📝 Licencia
 
-## 📊 Optimización
-
-- **Performance**: CSS y JS minificados
-- **SEO**: Meta tags y estructura semántica
-- **Accesibilidad**: Navegación por teclado y lectores de pantalla
-- **Carga**: Imágenes optimizadas y lazy loading
-
-## 🔧 Desarrollo
-
-Para desarrollo local:
-1. Clona o descarga los archivos
-2. Abre `index.html` en tu editor
-3. Modifica los archivos según necesites
-4. Abre en el navegador para ver cambios
-
-## 📝 Licencia
-
-Este proyecto es de uso libre para presentaciones de portafolio.
+Este proyecto está bajo licencia MIT. Puedes usar, modificar y distribuir libremente.
 
 ---
 
-**EcoMove** - Transformando la movilidad urbana con inteligencia artificial y sostenibilidad. 
+**Desarrollado con ❤️ para mostrar el proyecto ecomove** 
